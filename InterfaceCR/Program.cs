@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using app.entities;
+﻿using app.entities;
 
 namespace POO_Interface
 {
@@ -18,6 +13,7 @@ namespace POO_Interface
             // CR.LigarMudo();
             CR.Play();
             CR.AbrirMenu();
+            System.Console.ReadKey();
         }
     }
 }
