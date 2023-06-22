@@ -22,7 +22,7 @@ namespace CRUD_CREATE
 
             while (lendo_dados.Read())
             {
-                Console.WriteLine($"{lendo_dados["idLogin"]} - {lendo_dados["username"]} - {lendo_dados["password"]}");
+                Console.WriteLine($"{lendo_dados["username"]} - {lendo_dados["password"]}");
             }
 
             Console.WriteLine("\nFim da lista!");
