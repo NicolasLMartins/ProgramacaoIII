@@ -12,22 +12,22 @@ namespace CRUD_CREATE
                                                             Initial Catalog = RestauranteUS;
                                                             User ID = sa; Password = sa;");
 
-            Console.WriteLine("Entre com o nome de usuário: ");
-            string username = Console.ReadLine();
-
-            Console.WriteLine("Entre com a sua senha: ");
-            string password = Console.ReadLine();
-
-            OleDbCommand sql_Create = new OleDbCommand($"INSERT INTO tbLogin VALUES('{username}', '{password}')", conexao);
+            OleDbCommand sql_Read = new OleDbCommand("SELECT * FROM tbLogin", conexao);
 
             conexao.Open();
 
-            int i = sql_Create.ExecuteNonQuery();
+            OleDbDataReader lendo_dados = sql_Read.ExecuteReader();
 
-            if (i > 0)
+            Console.WriteLine("LISTANDO OS DADOS DA TABELA\n");
+
+            while (lendo_dados.Read())
             {
-                Console.WriteLine("Inserção concluída com sucesso!");
+                Console.WriteLine($"{lendo_dados["idLogin"]} - {lendo_dados["username"]} - {lendo_dados["password"]}");
             }
+
+            Console.WriteLine("\nFim da lista!");
+
+            lendo_dados.Close();
 
             conexao.Close();
         }
