@@ -1,7 +1,7 @@
-﻿using System;
-using System.Data.OleDb;
+﻿using System.Data.OleDb;
+using System;
 
-namespace CRUD_CREATE
+namespace CRUD_DELETE
 {
     class Program
     {
@@ -12,21 +12,18 @@ namespace CRUD_CREATE
                                                             Initial Catalog = RestauranteUS;
                                                             User ID = sa; Password = sa;");
 
-            Console.Write("Entre com o nome de usuário: ");
-            string username = Console.ReadLine();
+            Console.Write("Entre com o id do usuário que deseja deletar: ");
+            int id = int.Parse(Console.ReadLine());
 
-            Console.Write("Entre com a sua senha: ");
-            string password = Console.ReadLine();
-
-            OleDbCommand sql_Create = new OleDbCommand($"INSERT INTO tbLogin VALUES('{username}', '{password}')", conexao);
+            OleDbCommand sql_Delete = new OleDbCommand($"DELETE FROM tbLogin WHERE Id = {id}", conexao);
 
             conexao.Open();
 
-            int i = sql_Create.ExecuteNonQuery();
+            int i = sql_Delete.ExecuteNonQuery();
 
             if (i > 0)
             {
-                Console.WriteLine("\nInserção concluída com sucesso!");
+                Console.WriteLine("\nDeleção de registro realizada com sucesso!");
             }
 
             conexao.Close();

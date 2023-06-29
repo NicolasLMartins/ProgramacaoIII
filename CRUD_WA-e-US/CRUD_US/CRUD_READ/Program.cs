@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.OleDb;
 
-namespace CRUD_CREATE
+namespace CRUD_READ
 {
     class Program
     {
